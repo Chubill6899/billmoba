@@ -7,13 +7,16 @@ image: python:3.10-slim  # Adjust Python version as needed
 variables:
   PYPI_USERNAME: __token__
   PYPI_PASSWORD: $PYPI_TOKEN  # Replace with actual environment variable name
+  POETRY_VERSION: "1.8.2"
 
 build:
   stage: build
   script:
-    - pip install poetry
+    - pip install --upgrade pip
+    - pip install poetry==$POETRY_VERSION
     - poetry config repositories.pypi.url https://upload.pypi.org/v3/  # Update for PyPI Simple repository
     - cp files/pyproject.toml .
+    - poetry install
     - poetry build
   artifacts:
     paths:

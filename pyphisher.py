@@ -996,7 +996,7 @@ def about():
 # Optional function for url masking
 def masking(url):
     global kshrt
-    cust = input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y/N/help] : {yellow}")
+    cust = "n" # input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y/N/help] : {yellow}")
     if cust in [ "", "n", "N", "no" ]:
         return
     if cust == "help":
